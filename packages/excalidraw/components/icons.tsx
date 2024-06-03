@@ -1472,6 +1472,28 @@ export const FontFamilyCodeIcon = createIcon(
   modifiedTablerIconProps,
 );
 
+export const FontFamilyChineseIcon = createIcon(
+  <>
+    <g
+      clipPath="url(#a)"
+      stroke="currentColor"
+      strokeWidth="1.25"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M 6 5 L 12 5 C 13 5 14 5 14 6 L 14 8 C 14 9 13 9 12 9 H 6 C 5 9 4 9 4 8 L 4 6 C 4 5 5 5 6 5" />
+    </g>
+    <g
+      clipPath="url(#a)"
+      stroke="none"
+      fill="currentColor"
+    >
+      <path d="M 9 2 C 9 2 10 2 10 3 L 10 14 C 10 15 8 15 8 14 L 8 3 C 8 2 9 2 9 2" />
+    </g>
+  </>,
+  modifiedTablerIconProps,
+);
+
 export const TextAlignLeftIcon = createIcon(
   <g
     stroke="currentColor"

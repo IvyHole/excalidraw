@@ -41,6 +41,7 @@ import {
   FreedrawIcon,
   FontFamilyNormalIcon,
   FontFamilyCodeIcon,
+  FontFamilyChineseIcon,
   TextAlignLeftIcon,
   TextAlignCenterIcon,
   TextAlignRightIcon,
@@ -790,6 +791,12 @@ export const actionChangeFontFamily = register({
         text: t("labels.code"),
         icon: FontFamilyCodeIcon,
         testId: "font-family-code",
+      },
+      {
+        value: FONT_FAMILY.XiaolaiSC,
+        text: "Chinese",
+        icon: FontFamilyChineseIcon,
+        testId: "font-family-Chinese",
       },
     ];
 
