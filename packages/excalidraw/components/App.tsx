@@ -1550,6 +1550,8 @@ class App extends React.Component<AppProps, AppState> {
                           app={this}
                           isCollaborating={this.props.isCollaborating}
                           openAIKey={this.OPENAI_KEY}
+                          openAIUrl={this.OPENAI_URL}
+                          openAIModel={this.OPENAI_MODEL}
                           isOpenAIKeyPersisted={this.OPENAI_KEY_IS_PERSISTED}
                           onOpenAIAPIKeyChange={this.onOpenAIKeyChange}
                           onMagicSettingsConfirm={this.onMagicSettingsConfirm}
@@ -1911,6 +1913,8 @@ class App extends React.Component<AppProps, AppState> {
       apiKey: this.OPENAI_KEY,
       text: textFromFrameChildren,
       theme: this.state.theme,
+      apiurl:this.OPENAI_URL,
+      apimodel:this.OPENAI_MODEL,
     });
 
     if (!result.ok) {
