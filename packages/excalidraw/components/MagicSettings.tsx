@@ -43,7 +43,7 @@ export const MagicSettings = (props: {
     <Dialog
       onCloseRequest={() => {
         props.onClose();
-        props.onConfirm(keyInputValue.trim(),,keyInputValueUrl.trim(), keyInputValueModel.trim(), shouldPersist);
+        props.onConfirm(keyInputValue.trim(),keyInputValueUrl.trim(), keyInputValueModel.trim(), shouldPersist);
       }}
       title={
         <div style={{ display: "flex" }}>
