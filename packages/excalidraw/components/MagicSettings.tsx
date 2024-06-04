@@ -99,7 +99,7 @@ export const MagicSettings = (props: {
             OpenAI.
           </Paragraph>
           <Paragraph>
-            The browser will not save your API proxy address and API model. The model can be filled in with XXXX.
+            The browser will not save your API proxy address and API model. The model can be filled in with gpt-4o.
           </Paragraph>
           <TextField
             isRedacted
