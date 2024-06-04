@@ -99,28 +99,7 @@ export const MagicSettings = (props: {
             OpenAI.
           </Paragraph>
           <Paragraph>
-            While the OpenAI API is in beta, its use is strictly limited — as
-            such we require you use your own API key. You can create an{" "}
-            <a
-              href="https://platform.openai.com/login?launch"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              OpenAI account
-            </a>
-            , add a small credit (5 USD minimum), and{" "}
-            <a
-              href="https://platform.openai.com/api-keys"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              generate your own API key
-            </a>
-            .
-          </Paragraph>
-          <Paragraph>
-            Your OpenAI key does not leave the browser, and you can also set
-            your own limit in your OpenAI account dashboard if needed.
+            The browser will not save your API proxy address and API model. The model can be filled in with XXXX.
           </Paragraph>
           <TextField
             isRedacted
@@ -135,8 +114,8 @@ export const MagicSettings = (props: {
           <TextField
             isRedacted
             value={keyInputValueModel}
-            placeholder="Paste your API key here"
-            label="OpenAI API key"
+            placeholder="Paste your API model here"
+            label="OpenAI API model"
             onChange={(value) => {
               setKeyInputValueModel(value);
             }}
