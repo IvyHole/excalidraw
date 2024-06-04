@@ -1913,8 +1913,8 @@ class App extends React.Component<AppProps, AppState> {
       apiKey: this.OPENAI_KEY,
       text: textFromFrameChildren,
       theme: this.state.theme,
-      apiurl:this.OPENAI_URL,
-      apimodel:this.OPENAI_MODEL,
+      apiurl:this.OPENAI_URL || EDITOR_LS_KEYS.OAI_API_URL,
+      apimodel:this.OPENAI_MODEL || EDITOR_LS_KEYS.OAI_API_MODEL,
     });
 
     if (!result.ok) {
