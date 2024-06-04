@@ -1481,14 +1481,14 @@ export const FontFamilyChineseIcon = createIcon(
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <path d="M 6 5 L 12 5 C 13 5 14 5 14 6 L 14 8 C 14 9 13 9 12 9 H 6 C 5 9 4 9 4 8 L 4 6 C 4 5 5 5 6 5" />
+      <path d="M 7 6 L 13 6 C 14 6 15 6 15 7 L 15 9 C 15 10 14 10 13 10 H 7 C 6 10 5 10 5 9 L 5 7 C 5 6 6 6 7 6" />
     </g>
     <g
       clipPath="url(#a)"
       stroke="none"
       fill="currentColor"
     >
-      <path d="M 9 2 C 9 2 10 2 10 3 L 10 14 C 10 15 8 15 8 14 L 8 3 C 8 2 9 2 9 2" />
+      <path d="M 10 3 C 10 3 11 3 11 4 L 11 15 C 11 16 9 16 9 15 L 9 4 C 9 3 10 3 10 3" />
     </g>
   </>,
   modifiedTablerIconProps,

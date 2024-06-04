@@ -15,12 +15,16 @@ import { TTDDialogTab } from "./TTDDialog/TTDDialogTab";
 
 export const MagicSettings = (props: {
   openAIKey: string | null;
+  openAIUrl: string | null;
+  openAIModel: string | null;
   isPersisted: boolean;
-  onChange: (key: string, shouldPersist: boolean) => void;
-  onConfirm: (key: string, shouldPersist: boolean) => void;
+  onChange: (key: string, shouldPersist: boolean,url: string, model: string) => void;
+  onConfirm: (key: string, url: string, model: string, shouldPersist: boolean) => void;
   onClose: () => void;
 }) => {
   const [keyInputValue, setKeyInputValue] = useState(props.openAIKey || "");
+  const [keyInputValueUrl, setKeyInputValueUrl] = useState(props.openAIUrl || "");
+  const [keyInputValueModel, setKeyInputValueModel] = useState(props.openAIModel || "");
   const [shouldPersist, setShouldPersist] = useState<boolean>(
     props.isPersisted,
   );
@@ -28,7 +32,7 @@ export const MagicSettings = (props: {
   const appState = useUIAppState();
 
   const onConfirm = () => {
-    props.onConfirm(keyInputValue.trim(), shouldPersist);
+    props.onConfirm(keyInputValue.trim(),keyInputValueUrl.trim(), keyInputValueModel.trim(), shouldPersist);
   };
 
   if (appState.openDialog?.name !== "settings") {
@@ -120,15 +124,33 @@ export const MagicSettings = (props: {
           </Paragraph>
           <TextField
             isRedacted
+            value={keyInputValueUrl}
+            placeholder="Paste your API proxy here"
+            label="OpenAI API proxy"
+            onChange={(value) => {
+              setKeyInputValueUrl(value);
+            }}
+            selectOnRender
+          />
+          <TextField
+            isRedacted
+            value={keyInputValueModel}
+            placeholder="Paste your API key here"
+            label="OpenAI API key"
+            onChange={(value) => {
+              setKeyInputValueModel(value);
+            }}
+            selectOnRender
+          />
+          <TextField
+            isRedacted
             value={keyInputValue}
             placeholder="Paste your API key here"
             label="OpenAI API key"
             onChange={(value) => {
               setKeyInputValue(value);
-              props.onChange(value.trim(), shouldPersist);
             }}
             selectOnRender
-            onKeyDown={(event) => event.key === KEYS.ENTER && onConfirm()}
           />
           <Paragraph>
             By default, your API token is not persisted anywhere so you'll need

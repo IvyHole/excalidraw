@@ -86,10 +86,14 @@ interface LayerUIProps {
   app: AppClassProperties;
   isCollaborating: boolean;
   openAIKey: string | null;
+  openAIUrl: string | null;
+  openAIModel: string | null;
   isOpenAIKeyPersisted: boolean;
-  onOpenAIAPIKeyChange: (apiKey: string, shouldPersist: boolean) => void;
+  onOpenAIAPIKeyChange: (apiKey: string, shouldPersist: boolean,openAIUrl: string | null, openAIModel: string | null) => void;
   onMagicSettingsConfirm: (
     apiKey: string,
+    apiUrl: string,
+    apiModel: string,
     shouldPersist: boolean,
     source: "tool" | "generation" | "settings",
   ) => void;
@@ -150,6 +154,8 @@ const LayerUI = ({
   app,
   isCollaborating,
   openAIKey,
+  openAIUrl,
+  openAIModel,
   isOpenAIKeyPersisted,
   onOpenAIAPIKeyChange,
   onMagicSettingsConfirm,
@@ -471,15 +477,17 @@ const LayerUI = ({
       {appState.openDialog?.name === "settings" && (
         <MagicSettings
           openAIKey={openAIKey}
+          openAIUrl={openAIUrl}
+          openAIModel={openAIModel}
           isPersisted={isOpenAIKeyPersisted}
           onChange={onOpenAIAPIKeyChange}
-          onConfirm={(apiKey, shouldPersist) => {
+          onConfirm={(apiKey, apiUrl, apiModel, shouldPersist) => {
             const source =
               appState.openDialog?.name === "settings"
                 ? appState.openDialog?.source
                 : "settings";
             setAppState({ openDialog: null }, () => {
-              onMagicSettingsConfirm(apiKey, shouldPersist, source);
+              onMagicSettingsConfirm(apiKey, apiUrl, apiModel, shouldPersist, source);
             });
           }}
           onClose={() => {

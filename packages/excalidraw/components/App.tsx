@@ -1967,12 +1967,20 @@ class App extends React.Component<AppProps, AppState> {
   private OPENAI_KEY: string | null = EditorLocalStorage.get(
     EDITOR_LS_KEYS.OAI_API_KEY,
   );
+  private OPENAI_URL: string | null = EditorLocalStorage.get(
+    EDITOR_LS_KEYS.OAI_API_URL,
+  );
+  private OPENAI_MODEL: string | null = EditorLocalStorage.get(
+    EDITOR_LS_KEYS.OAI_API_MODEL,
+  );
   private OPENAI_KEY_IS_PERSISTED: boolean =
     EditorLocalStorage.has(EDITOR_LS_KEYS.OAI_API_KEY) || false;
 
   private onOpenAIKeyChange = (
     openAIKey: string | null,
     shouldPersist: boolean,
+    openAIUrl: string | null,
+    openAIModel: string | null,
   ) => {
     this.OPENAI_KEY = openAIKey || null;
     if (shouldPersist) {
@@ -1984,15 +1992,21 @@ class App extends React.Component<AppProps, AppState> {
     } else {
       this.OPENAI_KEY_IS_PERSISTED = false;
     }
+    this.OPENAI_URL = openAIUrl || null;
+    this.OPENAI_MODEL = openAIModel || null;
   };
 
   private onMagicSettingsConfirm = (
     apiKey: string,
+    apiUrl: string,
+    apiModel: string,
     shouldPersist: boolean,
     source: "tool" | "generation" | "settings",
   ) => {
     this.OPENAI_KEY = apiKey || null;
-    this.onOpenAIKeyChange(this.OPENAI_KEY, shouldPersist);
+    this.OPENAI_URL = apiUrl || null;
+    this.OPENAI_MODEL = apiModel || null;
+    this.onOpenAIKeyChange(this.OPENAI_KEY, shouldPersist, this.OPENAI_URL, this.OPENAI_MODEL);
 
     if (source === "settings") {
       return;
